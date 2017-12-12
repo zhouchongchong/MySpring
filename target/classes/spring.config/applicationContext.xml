@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/mvc
+          http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--<task:annotation-driven/>-->
+    <mvc:annotation-driven/>
+    <!-- 装载service -->
+    <bean id="sleepHelper" class="com.java.science.Spring.AOP.SleepHelper"></bean>
+<!--    <bean id="sleepPointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+
+        <property name="pattern" value=".*sleep"/>
+    </bean>
+    <bean id="sleepHelperAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="advice" ref="sleepHelper"/>
+        <property name="pointcut" ref="sleepPointcut"/>
+    </bean>
+
+    <bean id="humanProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="human"/>
+        <property name="interceptorNames" value="sleepHelperAdvisor"/>
+        <property name="proxyInterfaces" value="com.java.science.Spring.AOP.Sleepable"/>
+    </bean>-->
+    <bean id="autoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+    <bean id="sleepAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice" ref="sleepHelper"/>
+        <property name="pattern" value=".*sleep"/>
+    </bean>
+    <bean id="human" class="com.java.science.Spring.AOP.Human"></bean>
+
+
+
+
+
+
+
+    <!-- Jsp视图 -->
+    <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+    <!--<property name="order" value="1"/>-->
+    <!--<property name="prefix" value="/WEB-INF/jsp"/>-->
+    <!--<property name="suffix" value=""/>-->
+    <!--<property name="contentType" value="text/html; charset=utf-8"/>-->
+    <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+    <!--</bean>-->
+
+</beans>
