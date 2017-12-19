@@ -1,14 +1,14 @@
 package com.java.datastructure.linkedlist;
 
 
-import java.util.List;
+import com.java.datastructure.linkedlist.Interface.List;
 
 /**
  * @Author: aiying014
  * Created by zcc on 11:02 2017/12/19.
  * @Description:
  */
-public class Linked {
+public class Linked implements List {
 	//表头
 	private Node head;
 	//当前节点对象
@@ -21,9 +21,9 @@ public class Linked {
 		size = 0;
 	}
 
-	public void add(String name) {
+	public void add(Object name) {
 		p = head;
-		Node data = new Node(name);
+		Node data = new Node((String)name);
 		while (p.getNext() != null) {
 			//移动指针
 			p = p.getNext();
@@ -51,16 +51,18 @@ public class Linked {
 		}
 		return size;
 	}
-  	public boolean isEmpty(){
+
+
+	public boolean isEmpty(){
 		if (head.getNext() == null){
 			return true;
 		}
 		return false;
 	}
-	public void del(String name) {
+	public void del(Object name) {
 		p = head;
 		while (p.getNext() != null) {
-			if (p.getNext().getName().equals(name)) {
+			if (p.getNext().getName().equals((String) name)) {
 				p.setNext(p.getNext().getNext());
 				return;
 			}
@@ -81,6 +83,7 @@ public class Linked {
 			link.add(str);
 		}
 		link.display();
+		link.del("小张");
 		System.out.println(link.isEmpty());
 		System.out.println("link的大小为：" + link.size());
 		link.cir();
