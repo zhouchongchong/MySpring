@@ -9,28 +9,29 @@ import com.java.datastructure.linkedlist.Interface.List;
  * @Description:
  */
 public class Linked implements List {
-	//表头
+	//琛ㄥご
 	private Node head;
-	//当前节点对象
+	//褰撳墠鑺傜偣瀵硅薄
 	Node p;
-	//节点个数
+	//鑺傜偣涓暟
 	int size;
-
+	
 	public Linked() {
 		head = new Node();
 		size = 0;
 	}
-
+	@Override
 	public void add(Object name) {
 		p = head;
 		Node data = new Node((String)name);
 		while (p.getNext() != null) {
-			//移动指针
+			//绉诲姩鎸囬拡
 			p = p.getNext();
 		}
 		p.setNext(data);
 	}
 
+	@Override
 	public void display() {
 		p = head;
 		while (p.getNext() != null) {
@@ -43,6 +44,7 @@ public class Linked implements List {
 		}
 	}
 
+	@Override
 	public int size() {
 		p = head;
 		while (p.getNext() != null) {
@@ -53,12 +55,14 @@ public class Linked implements List {
 	}
 
 
+	@Override
 	public boolean isEmpty(){
 		if (head.getNext() == null){
 			return true;
 		}
 		return false;
 	}
+	@Override
 	public void del(Object name) {
 		p = head;
 		while (p.getNext() != null) {
@@ -78,14 +82,14 @@ public class Linked implements List {
 	}
 	public static void main(String[] args) {
 		Linked link = new Linked();
-		String[] strs = new String[]{"小明", "小王", "小张"};
+		String[] strs = new String[]{"灏忔槑", "灏忕帇", "灏忓紶"};
 		for (String str : strs) {
 			link.add(str);
 		}
 		link.display();
-		link.del("小张");
+		link.del("灏忓紶");
 		System.out.println(link.isEmpty());
-		System.out.println("link的大小为：" + link.size());
+		System.out.println("link鐨勫ぇ灏忎负锛�" + link.size());
 		link.cir();
 		link.display();
 	}
