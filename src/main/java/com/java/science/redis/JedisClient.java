@@ -9,8 +9,7 @@ import redis.clients.jedis.Jedis;
  */
 public class JedisClient {
 	private static Jedis jedis;
-
-	private static synchronized Jedis InStance(){
+	public static synchronized Jedis InStance(){
 		if (jedis==null){
 			jedis = new Jedis();
 		}

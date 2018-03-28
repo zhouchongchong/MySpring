@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
  * Created by zcc on 18:33 2017/11/23.
  * @Description:
  */
+
 public class PropertiesUtils {
 
 	private static HashMap<String,PropertiesUtils> configMap = new HashMap<String, PropertiesUtils>();
@@ -27,6 +28,7 @@ public class PropertiesUtils {
 	 * @param name
 	 */
 	private PropertiesUtils(String name) {
+
 		this.loadTime = new Date();
 		this.resourceBundle = ResourceBundle.getBundle(name);
 	}
@@ -75,7 +77,7 @@ public class PropertiesUtils {
 	/**
 	 * get value if value nil return default value
 	 * @param key this key
-	 * @param defaaltValue def value
+	 * @param defaultValue def value
 	 * @return get value or def value
 	 */
 	public String get(String key,String defaultValue) {
