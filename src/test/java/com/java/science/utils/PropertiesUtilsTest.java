@@ -16,8 +16,8 @@ import static org.junit.Assert.*;
 public class PropertiesUtilsTest {
 	@Test
 	public void testPropertisUtils(){
-//		String url = PropertiesUtils.getInstance("reids").get("redis.url");
-//		System.out.println(url);
+		String url = PropertiesUtils.getInstance("reids").get("redis.url");
+		System.out.println(url);
 //		Persion zhangsan  = new Persion("zhangsan");
 //		changeName(zhangsan);
 //		zhangsan.printNam();
